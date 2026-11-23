@@ -3,10 +3,11 @@
 **Let Claude Code build your project while you stay the architect, and know it works
 because a test proved it.**
 
-<img src="docs/media/workflow.gif" alt="Replay of a real project's history: architecture decisions proposed and accepted, milestones that start with a failing test, one commit per task, and a progress file any session resumes from" width="100%">
+<img src="docs/media/workflow.gif" alt="A real tdd-studio session building a Pomodoro CLI: design questions, accepted ADRs, a milestone test that fails first, red and green tests, a sabotage check catching broken code, one commit per task, and the working app" width="100%">
 
-<sub>Replayed from the repository of a real project built with tdd-studio. Every line is
-real output from that project's git history and docs.</sub>
+<sub>Condensed from a real session: Claude, with this plugin, built a command-line Pomodoro
+timer from a two-line brief. Every line comes from that session or the app it produced;
+some are shortened.</sub>
 
 ## Why
 
