@@ -1,6 +1,6 @@
 ---
 name: kickoff
-description: Start a new software project the careful way, from a project brief to an agreed architecture. Interviews the owner to complete PROJECT_BRIEF.md, then runs a teacher-mode architecture discussion (plain-language explanations, options with trade-offs, the owner decides), records every significant decision as an ADR in docs/adr/, and writes a system-design walkthrough in docs/ARCHITECTURE.md. Use this whenever someone has a project idea or a brief and wants to discuss design, choose a stack, make architecture decisions or write ADRs before coding, or says things like "let's begin the architecture discussion", "help me design this", "I have a project brief". Part of the tdd-studio workflow (kickoff → plan → build-next).
+description: Start a new software project the careful way, from a project brief to an agreed architecture. Interviews the owner to complete PROJECT_BRIEF.md, then runs an architecture discussion one decision at a time (options with trade-offs, a recommendation, the owner decides), records every significant decision as an ADR in docs/adr/, and writes a system-design walkthrough in docs/ARCHITECTURE.md. Use this whenever someone has a project idea or a brief and wants to discuss design, choose a stack, make architecture decisions or write ADRs before coding, or says things like "let's begin the architecture discussion", "help me design this", "I have a project brief". Part of the tdd-studio workflow (kickoff → plan → implement).
 ---
 
 # Kickoff: from a brief to an agreed architecture
@@ -14,15 +14,15 @@ This is the first stage of the tdd-studio workflow. Its output is a repo that co
 The next stage, `/tdd-studio:plan`, turns these into an execution plan. Do not write
 product code in this stage.
 
-## Your role: teacher and architect
+## Your role: architect
 
-Projects run with this workflow are often learning projects: the owner wants to
-**understand every decision**, not only to end up with working software. So:
+The owner wants to stay on top of every decision without wading through tutorials. So:
 
-- **Explain before asking.** When a decision needs a concept the owner may not know
-  (CRDTs, state vectors, WebSockets, contenteditable, hashing, migrations…), explain it
-  in plain language first, with an analogy and a concrete example, and define terms the
-  first time you use them. Offer to "dumb it down" further; owners do ask for that.
+- **Be brief by default.** Give the options and trade-offs in plain words, define a term
+  in one line the first time it matters, and move on. Do not lecture.
+- **Teach only on demand.** When the owner asks ("why?", "explain X", "go deeper"),
+  answer fully. For a longer walkthrough (a concept, an ADR, a system-design recap, or a
+  guided read through the code), point to `/tdd-studio:learn`.
 - **The owner decides.** Present options and a recommendation; never decide anything
   significant silently. If the owner says "go with your recommendations", that is a valid
   decision: record it as theirs.
@@ -45,7 +45,7 @@ creating a remote repository or pushing anywhere (it is outward-facing).
 If `PROJECT_BRIEF.md` exists, read it and list what is missing or vague. If it does not
 exist, interview the owner and write it from `references/brief-template.md`. Keep the
 owner's voice; ask rather than invent. Important fields that are often missing:
-learning goals, non-goals, constraints (offline? deployment? budget?), who writes the
+non-goals, constraints (offline? deployment? budget?), who writes the
 tests, and what "done" means for the first milestone.
 
 ### 2. Build the decision agenda
@@ -71,7 +71,7 @@ Show the agenda; the owner can reorder, merge or drop items.
 For each agenda item, use this shape (in chat, not yet in a file):
 
 1. **Why it matters here**: the problem in this project's terms.
-2. **Concepts**: plain-language explanation of what the owner needs to judge options.
+2. **Terms**: only what the owner needs to judge the options, one line each.
 3. **Options** (2-4): for each, what it is, pros, cons, and "right when…".
 4. **Recommendation** and the reason, tied to the brief's goals.
 5. **Questions for the owner**, numbered, so they can answer "1(b), 2(a)".

@@ -10,10 +10,9 @@ short: it is loaded into every session.
 @docs/EXECUTION_PLAN.md
 @docs/PROGRESS.md
 
-This is a learning project. The goal is for me (the owner) to understand every decision,
-not just to ship. Be a patient teacher: define terms, explain new concepts and trade-offs
-in plain language (analogies and concrete examples help), and never decide anything
-significant silently.
+I (the owner) decide everything significant; never decide silently. Keep explanations
+short by default. When I ask ("why?", "explain X"), answer fully, from the actual code
+with file:line references. For longer walkthroughs I use `/tdd-studio:learn`.
 
 Design reference: `docs/ARCHITECTURE.md` (system design) and `docs/adr/` (accepted
 decisions with their reasons).

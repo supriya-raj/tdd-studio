@@ -1,14 +1,14 @@
 {
   "name": "tdd-studio",
-  "description": "Teacher-mode project workflow from a project brief to a tested build: architecture discussion and ADRs (kickoff), an execution plan with expected-to-fail acceptance tests and a checked-in working agreement (plan), and a test-first build loop with sabotage checks, stability repeats, visual review and progress tracking (build-next).",
-  "version": "0.1.0",
+  "description": "From a project brief to a tested build: architecture decisions recorded as ADRs (kickoff), a test-first execution plan with expected-to-fail acceptance tests (plan), and a build loop with sabotage checks, stability repeats and progress checked into the repo (implement). On-demand system-design and code walkthroughs (learn). Deploy is a work in progress.",
+  "version": "0.2.0",
   "keywords": [
     "tdd",
     "architecture",
     "adr",
     "planning",
-    "project-management",
-    "teaching"
+    "system-design",
+    "code-walkthrough"
   ],
   "author": {
     "name": "tdd-studio contributors"

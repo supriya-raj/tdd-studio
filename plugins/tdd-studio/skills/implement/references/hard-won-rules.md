@@ -70,7 +70,7 @@ WebSocket sync server, but the rules are general.
 
 23. **Ask before destructive or outward-facing actions** (force push, deleting data,
     publishing, installing system software); prefer in-repo tools over system installs.
-24. **When the owner pauses to ask questions, teach.** Read the actual code and answer
+24. **When the owner pauses to ask questions, answer from the code.** Read the actual code and answer
     with file:line references; offer the cleaner design if the question exposes a wart.
 25. **Report honestly.** Say what failed, what you could not verify ("suspected, not
     confirmed"), and what you changed in tests and why.

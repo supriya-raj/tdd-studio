@@ -1,6 +1,6 @@
 ---
 name: plan
-description: Turn an agreed architecture (PROJECT_BRIEF.md plus accepted ADRs and docs/ARCHITECTURE.md) into a test-first execution plan and the files that let any future session pick up exactly where the last one stopped. Writes docs/EXECUTION_PLAN.md (milestones with expected-to-fail "done when" tests, phases of small tasks with tests-first and verify columns, spikes), the working agreement in .claude/CLAUDE.md, docs/PROGRESS.md, docs/LEARNING_LOG.md, a README stub and, for UI projects, docs/DESIGN.md. Use this when the architecture is settled and someone asks for an execution plan, milestones, a roadmap, a TDD plan, task breakdown, or "how should we get this implemented". Part of the tdd-studio workflow (kickoff → plan → build-next).
+description: Turn an agreed architecture (PROJECT_BRIEF.md plus accepted ADRs and docs/ARCHITECTURE.md) into a test-first execution plan and the files that let any future session pick up exactly where the last one stopped. Writes docs/EXECUTION_PLAN.md (milestones with expected-to-fail "done when" tests, phases of small tasks with tests-first and verify columns, spikes), the working agreement in .claude/CLAUDE.md, docs/PROGRESS.md, docs/LEARNING_LOG.md, a README stub and, for UI projects, docs/DESIGN.md. Use this when the architecture is settled and someone asks for an execution plan, milestones, a roadmap, a TDD plan, task breakdown, or "how should we get this implemented". Part of the tdd-studio workflow (kickoff → plan → implement).
 ---
 
 # Plan: from an agreed architecture to a test-first execution plan
@@ -17,7 +17,7 @@ Second stage of the tdd-studio workflow. Inputs: `PROJECT_BRIEF.md`, accepted AD
 | `README.md` | Stub: one-liner, status, how to run, layout, doc links |
 | `docs/DESIGN.md` | UI projects only: the design system and how UI is reviewed |
 
-The next stage is `/tdd-studio:build-next`, which executes the plan task by task.
+The next stage is `/tdd-studio:implement`, which executes the plan task by task.
 
 ## Why the plan looks the way it does
 
@@ -78,7 +78,7 @@ Use `references/execution-plan-template.md`. Essentials:
 ### 3. Write the working agreement: .claude/CLAUDE.md
 
 Use `references/claude-md-template.md`. It imports the brief, plan and progress (so they
-load every session), sets the teacher role, the session-start protocol, the per-phase
+load every session), sets the owner-decides rule, the session-start protocol, the per-phase
 approval, the per-task TDD rules, idempotency rules and code style. Keep it short: it is
 loaded into every session.
 
@@ -95,7 +95,7 @@ phone width, and a screenshot-review step that every UI task's Verify includes.
 Remove what is no longer relevant from the docs (draft notes, superseded text). Commit
 (`docs: execution plan and working agreement`). Push only with the owner's agreement.
 Then state the Phase 0 plan in 5-10 lines and wait for the owner's OK, or suggest
-`/tdd-studio:build-next`.
+`/tdd-studio:implement`.
 
 ## Reference files
 

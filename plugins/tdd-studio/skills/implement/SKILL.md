@@ -1,9 +1,9 @@
 ---
-name: build-next
-description: Continue building a tdd-studio project: run the session-start check against docs/PROGRESS.md and git, then execute the next task or phase from docs/EXECUTION_PLAN.md test-first (red for the right reason, green, refactor, sabotage check, stability repeats, visual review for UI), commit one task per commit, push, and update PROGRESS.md so the next session can resume cold. Also closes milestones and, when asked, records README showcase media. Use this whenever a repo has docs/EXECUTION_PLAN.md and docs/PROGRESS.md and the owner says things like "continue", "next task", "start phase 2", "resume", "go ahead with the next milestone", "implement everything in this phase", or asks to close a milestone or showcase the project. Part of the tdd-studio workflow (kickoff → plan → build-next).
+name: implement
+description: Continue building a tdd-studio project: run the session-start check against docs/PROGRESS.md and git, then execute the next task or phase from docs/EXECUTION_PLAN.md test-first (red for the right reason, green, refactor, sabotage check, stability repeats, visual review for UI), commit one task per commit, push, and update PROGRESS.md so the next session can resume cold. Also closes milestones and, when asked, records README showcase media. Use this whenever a repo has docs/EXECUTION_PLAN.md and docs/PROGRESS.md and the owner says things like "continue", "next task", "start phase 2", "resume", "go ahead with the next milestone", "implement everything in this phase", or asks to close a milestone or showcase the project. Part of the tdd-studio workflow (kickoff → plan → implement).
 ---
 
-# Build next: the test-first build loop
+# Implement: the test-first build loop
 
 Third stage of the tdd-studio workflow. The repo already has a brief, ADRs, an
 architecture doc, `docs/EXECUTION_PLAN.md`, `.claude/CLAUDE.md` and `docs/PROGRESS.md`
@@ -57,8 +57,9 @@ Read `references/tdd-loop.md` for the full loop. In short:
    note), LEARNING_LOG.md for lessons, docs touched by the change (README, ADR
    amendments, architecture). Commit with the task ID, push.
 
-Explain as you go: when a task introduces a concept (an HTTP upgrade, a token bucket, a
-CSP header, a fixture), explain it in plain language at the moment it appears.
+Report each task in a few lines (what changed, what the tests prove, anything odd). Do
+not lecture; if the owner asks "why?" or "explain X", answer from the code, and suggest
+`/tdd-studio:learn` for a longer walkthrough.
 
 ## 4. When things go wrong
 

@@ -1,64 +1,54 @@
 # tdd-studio
 
-A Claude Code plugin that takes a software project **from a project brief to a tested
-build**, the careful way: a teacher-mode architecture discussion, a decision record for
-every significant choice, a test-first execution plan, and a build loop that keeps its
-progress checked into the repo so any session can pick up where the last one stopped.
+**Let Claude Code build your project while you stay the architect, and know it works
+because a test proved it.**
 
-It is stack-agnostic: the stack is decided per project, in the architecture discussion.
+<img src="docs/media/workflow.gif" alt="Replay of a real project's history: architecture decisions proposed and accepted, milestones that start with a failing test, one commit per task, and a progress file any session resumes from" width="100%">
 
-## The workflow
+<sub>Replayed from the repository of a real project built with tdd-studio. Every line is
+real output from that project's git history and docs.</sub>
 
-| Stage | Command | What you get |
-|---|---|---|
-| 1. Kickoff | `/tdd-studio:kickoff` | A completed `PROJECT_BRIEF.md`; a discussion where every concept is explained in plain language and **you** decide; one ADR per decision in `docs/adr/`; a system-design walkthrough in `docs/ARCHITECTURE.md` |
-| 2. Plan | `/tdd-studio:plan` | `docs/EXECUTION_PLAN.md` (milestones, each starting with an expected-to-fail "done when" test, then small test-first tasks with a Verify check), the working agreement in `.claude/CLAUDE.md`, `docs/PROGRESS.md`, `docs/LEARNING_LOG.md`, a README stub, and `docs/DESIGN.md` for UI projects |
-| 3. Build | `/tdd-studio:build-next` | Each session: check progress against git and the checks, then the next task or phase, test-first, one commit per task, progress updated every time |
+## Why
 
-You only need a project idea (or a brief) to start: `/tdd-studio:kickoff`.
+Coding agents are fast, but on a real project they let you down in three ways:
 
-## What the build loop insists on
+1. **They decide for you.** You only find out the storage layer changed when it breaks.
+2. **They say "done" when it isn't.** The tests pass, but nothing checks the behaviour
+   that matters.
+3. **They forget.** When the session ends, the plan, the decisions and what was half
+   finished all go with it.
 
-- **Red for the right reason:** new tests run and fail because the behaviour is missing,
-  not because of a typo or a server that did not start.
-- **Sabotage checks:** break the specific behaviour a test protects and watch the test
-  fail, especially for "X never happens" tests and anything security- or data-related.
-- **Stability repeats:** run affected tests several times; flaky means not done.
-- **Visual review for UI:** screenshots in every theme and at phone width, looked at
-  before a UI task is done.
-- **Probe before guessing**, fix causes instead of raising timeouts, and report honestly
-  (including what could not be verified).
-- **The owner stays in charge:** phase plans are approved before they start, ADRs are
-  never self-accepted, and destructive or outward-facing actions are asked about first.
+tdd-studio is a Claude Code plugin that deals with all three:
 
-These rules came from building a real project (a local-first, real-time collaborative
-notes app) with this workflow; `build-next` carries the lessons as a reference.
+- **You make every significant call.** Each decision is laid out with its options and a
+  recommendation, then recorded as an ADR that stays *Proposed* until you accept it.
+- **"Done" means a test proved it.** Every milestone starts with a test that is expected
+  to fail. Every task goes red, then green, then gets a **sabotage check**: break the
+  behaviour on purpose and watch the test catch it. Then the tests run repeatedly to
+  rule out flakes.
+- **The repo is the memory.** Progress, decisions and the next action are committed with
+  the code, one commit per task. A new session reads the repo, checks it against git,
+  and carries on.
+
+## Commands
+
+| Command | What it does |
+|---|---|
+| `/tdd-studio:kickoff` | Takes an idea to an agreed architecture, one decision at a time, each recorded as an ADR |
+| `/tdd-studio:plan` | Splits the work into milestones, each opened by a failing acceptance test, then small test-first tasks |
+| `/tdd-studio:implement` | Builds the next task or phase. Each task is red, green, sabotage-checked, committed |
+| `/tdd-studio:learn` | Only when you ask: a system-design recap, a guided read through the code, an ADR explained, or interview-style drill questions |
+| `/tdd-studio:deploy` | Work in progress |
+
+It works with any stack, because the stack is one of the decisions you make at kickoff.
 
 ## Install
-
-In Claude Code:
 
 ```
 /plugin marketplace add supriya-raj/tdd-studio
 /plugin install tdd-studio@tdd-studio
 ```
 
-Then, in a new or empty project folder: `/tdd-studio:kickoff`.
+Then, in an empty folder: `/tdd-studio:kickoff`.
 
-## Repository layout
-
-```
-.claude-plugin/marketplace.json      this repo as a plugin marketplace
-plugins/tdd-studio/
-  .claude-plugin/plugin.json         the plugin manifest
-  skills/kickoff/                    brief → architecture discussion → ADRs → ARCHITECTURE.md
-  skills/plan/                       execution plan, working agreement, progress files
-  skills/build-next/                 the test-first build loop, milestone close, showcase
-```
-
-Each skill has a `SKILL.md` and `references/` with templates and detailed guidance that
-load only when needed.
-
-## Licence
-
-MIT
+MIT licence.

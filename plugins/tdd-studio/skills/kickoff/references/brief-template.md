@@ -11,10 +11,10 @@ wording. Delete prompts (the italic lines) once a section is written.
 ## Goals
 *What must be true for this project to be a success? 3-6 bullets, concrete.*
 
-## Learning goals
-*What does the owner want to understand by building it? (e.g. "how CRDTs merge
-concurrent edits", "how a block editor integrates with sync"). Drives how much the
-build explains, and which parts are hand-built instead of bought.*
+## Learning goals (optional)
+*Only if the owner offers them: what they want to understand by building it (e.g. "how
+CRDTs merge concurrent edits"). Influences which parts are hand-built instead of bought,
+and what `/tdd-studio:learn` is likely to be asked about. Delete the section if empty.*
 
 ## Non-goals
 *What we are deliberately not doing (now). Prevents scope creep later.*

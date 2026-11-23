@@ -19,7 +19,7 @@ A plain-text diagram of the components and how they talk. One paragraph per comp
 
 ## 4. <The core technique>
 How the hard part works (e.g. how merging works, how scheduling works), with a small
-worked example. This is where the learning goals are served.
+worked example. Deep enough that a reader could rebuild it.
 
 ## 5. Data model
 ### 5.1 Inside the <unit> (e.g. a note's document)

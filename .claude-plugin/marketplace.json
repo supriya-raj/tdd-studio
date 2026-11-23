@@ -8,7 +8,7 @@
   "plugins": [
     {
       "name": "tdd-studio",
-      "description": "Teacher-mode project workflow: /tdd-studio:kickoff (brief to ADRs and architecture), /tdd-studio:plan (milestones, execution plan, working agreement, progress files), /tdd-studio:build-next (test-first build loop with sabotage checks and checked-in progress).",
+      "description": "Brief to tested build: /tdd-studio:kickoff (architecture and ADRs), /tdd-studio:plan (test-first execution plan, checked-in progress), /tdd-studio:implement (TDD build loop with sabotage checks), /tdd-studio:learn (on-demand design and code walkthroughs).",
       "category": "development",
       "source": "./plugins/tdd-studio",
       "author": {
