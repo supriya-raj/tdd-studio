@@ -1,13 +1,11 @@
 # tdd-studio
 
-**Let Claude Code build your project while you stay the architect, and know it works
-because a test proved it.**
+**Build real projects with Claude Code: you make the design decisions, tests prove each step works, and the repo remembers where you left off.**
 
 <img src="docs/media/workflow.gif" alt="A real tdd-studio session building a Pomodoro CLI: design questions, accepted ADRs, a milestone test that fails first, red and green tests, a sabotage check catching broken code, one commit per task, and the working app" width="100%">
 
 <sub>Condensed from a real session: Claude, with this plugin, built a command-line Pomodoro
-timer from a two-line brief. Every line comes from that session or the app it produced;
-some are shortened.</sub>
+timer from a two-line brief.</sub>
 
 ## Why
 
@@ -16,8 +14,7 @@ Coding agents are fast, but on a real project they let you down in three ways:
 1. **They decide for you.** You only find out the storage layer changed when it breaks.
 2. **They say "done" when it isn't.** The tests pass, but nothing checks the behaviour
    that matters.
-3. **They forget.** When the session ends, the plan, the decisions and what was half
-   finished all go with it.
+3. **They forget.** When the session ends or the context window is compacted, the plan, the decisions and what was half finished all go with it.
 
 tdd-studio is a Claude Code plugin that deals with all three:
 
@@ -39,7 +36,7 @@ tdd-studio is a Claude Code plugin that deals with all three:
 | `/tdd-studio:plan` | Splits the work into milestones, each opened by a failing acceptance test, then small test-first tasks |
 | `/tdd-studio:implement` | Builds the next task or phase. Each task is red, green, sabotage-checked, committed |
 | `/tdd-studio:learn` | Only when you ask: a system-design recap, a guided read through the code, an ADR explained, or interview-style drill questions |
-| `/tdd-studio:deploy` | Work in progress |
+| `/tdd-studio:deploy` | Coming Soon |
 
 It works with any stack, because the stack is one of the decisions you make at kickoff.
 
